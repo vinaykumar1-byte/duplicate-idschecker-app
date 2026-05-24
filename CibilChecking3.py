@@ -40,7 +40,14 @@ if uploaded_file is not None:
         "Consumer Name"
     ]
 
+# Show Sample Format
+    st.info("""
+        ✅ Correct Header Format Should Be:
 
+        1. Universal ID Number
+        2. Income Tax Id Number
+        3. Consumer Name
+        """)
 # =========================
 # CHECK MISSING COLUMNS
 # =========================
@@ -70,14 +77,7 @@ if uploaded_file is not None:
         st.write("### Your Uploaded File Headers:")
         st.write(uploaded_columns)
 
-        # Show Sample Format
-        st.info("""
-        ✅ Correct Header Format Should Be:
-
-        1. Universal ID Number
-        2. Income Tax Id Number
-        3. Consumer Name
-        """)
+        
 
         st.stop()
 
