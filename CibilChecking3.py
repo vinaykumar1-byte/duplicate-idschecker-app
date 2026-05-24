@@ -17,19 +17,69 @@ uploaded_file = st.file_uploader(
     "Upload Excel File",
     type=["xlsx", "xls"]
 )
-
-if uploaded_file:
-
+if uploaded_file is not None:
     # =========================
     # READ FILE
     # =========================
-
     df = pd.read_excel(uploaded_file)
-
     st.success("File Uploaded Successfully ✅")
-
     st.subheader("Raw Data Preview")
     st.dataframe(df.head())
+    # =========================
+    # ACTUAL FILE COLUMNS
+    # =========================
+    uploaded_columns = list(df.columns)
+
+# =========================
+# REQUIRED COLUMN NAMES
+# =========================
+
+    required_columns = [
+        "Universal ID Number",
+        "Income Tax Id Number",
+        "Consumer Name"
+    ]
+
+
+# =========================
+# CHECK MISSING COLUMNS
+# =========================
+
+    missing_columns = [
+        col for col in required_columns
+        if col not in uploaded_columns
+    ]
+
+    # =========================
+    # SHOW ERROR IF MISSING
+    # =========================
+
+    if missing_columns:
+
+        st.error("❌ Required Column Names Not Found")
+
+        st.warning(
+            "Please check your Excel headers carefully."
+        )
+
+        # Show Missing Columns
+        st.write("### Missing Columns:")
+        st.write(missing_columns)
+
+        # Show Uploaded Columns
+        st.write("### Your Uploaded File Headers:")
+        st.write(uploaded_columns)
+
+        # Show Sample Format
+        st.info("""
+        ✅ Correct Header Format Should Be:
+
+        1. Universal ID Number
+        2. Income Tax Id Number
+        3. Consumer Name
+        """)
+
+        st.stop()
 
     # =========================
     # COLUMN NAMES
