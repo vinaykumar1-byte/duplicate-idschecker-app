@@ -7,39 +7,47 @@ from io import BytesIO
 st.set_page_config(page_title="Duplicate Checker", layout="wide")
 
 
-import streamlit as st
-
 st.set_page_config(layout="wide")
 
-hide_all = """
+hide_streamlit = """
 <style>
 
-/* Hide top header */
-[data-testid="stHeader"] {
-    display: none;
+/* Main header */
+header {
+    visibility: hidden;
 }
 
-/* Hide toolbar */
+/* Top toolbar */
 [data-testid="stToolbar"] {
     display: none;
 }
 
-/* Hide footer */
-footer {
-    visibility: hidden;
-}
-
-/* Hide hamburger menu */
-#MainMenu {
-    visibility: hidden;
-}
-
-/* Hide deploy/manage floating button */
+/* Top decoration */
 [data-testid="stDecoration"] {
     display: none;
 }
 
-/* Remove top padding */
+/* Footer */
+footer {
+    visibility: hidden;
+}
+
+/* Hamburger menu */
+#MainMenu {
+    visibility: hidden;
+}
+
+/* Deploy / Manage App button */
+.st-emotion-cache-1avcm0n {
+    display: none;
+}
+
+/* Floating bottom button */
+.st-emotion-cache-18ni7ap {
+    display: none;
+}
+
+/* Remove blank top space */
 .block-container {
     padding-top: 1rem;
 }
@@ -47,8 +55,7 @@ footer {
 </style>
 """
 
-st.markdown(hide_all, unsafe_allow_html=True)
-
+st.markdown(hide_streamlit, unsafe_allow_html=True)
 st.title("📊 Universal ID & PAN Duplicate Checker")
 st.write("Upload Excel file and detect duplicate Universal IDs / PAN with different names.")
 
