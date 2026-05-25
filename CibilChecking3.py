@@ -5,6 +5,16 @@ import pandas as pd
 from io import BytesIO
 
 st.set_page_config(page_title="Duplicate Checker", layout="wide")
+hide_streamlit_style = """
+    <style>
+    header {visibility: hidden;}
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+st.title("My App")
 
 st.title("📊 Universal ID & PAN Duplicate Checker")
 st.write("Upload Excel file and detect duplicate Universal IDs / PAN with different names.")
