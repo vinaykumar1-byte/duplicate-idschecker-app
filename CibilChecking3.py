@@ -9,37 +9,31 @@ st.set_page_config(page_title="Duplicate Checker", layout="wide")
 
 st.set_page_config(layout="wide")
 
-hide_st_style = """
+hide_streamlit_style = """
 <style>
+header {visibility: hidden;}
+footer {visibility: hidden;}
+#MainMenu {visibility: hidden;}
+[data-testid="stToolbar"] {display: none !important;}
 
-/* Hide all floating buttons */
-button[data-testid="manage-app-button"] {
-    visibility: hidden !important;
-    display: none !important;
-}
-
-/* Hide parent container */
-._terminalButton_rix23_138 {
-    display: none !important;
-}
-
-/* Hide toolbar/header/footer */
-header, footer, #MainMenu {
-    visibility: hidden !important;
-}
-
-[data-testid="stToolbar"] {
-    display: none !important;
-}
-
-/* Remove spacing */
 .block-container {
     padding-top: 0rem;
 }
-
 </style>
+
+<script>
+function hideButton() {
+    const button = window.parent.document.querySelector('button[data-testid="manage-app-button"]');
+    if (button) {
+        button.style.display = 'none';
+    }
+}
+
+setInterval(hideButton, 500);
+</script>
 """
-st.markdown(hide_st_style, unsafe_allow_html=True)
+
+st.components.v1.html(hide_streamlit_style, height=0)
 
 st.title("📊 Universal ID & PAN Duplicate Checker")
 st.write("Upload Excel file and detect duplicate Universal IDs / PAN with different names.")
