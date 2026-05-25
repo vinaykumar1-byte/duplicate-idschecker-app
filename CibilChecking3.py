@@ -7,33 +7,47 @@ from io import BytesIO
 st.set_page_config(page_title="Duplicate Checker", layout="wide")
 
 
+import streamlit as st
+
 st.set_page_config(layout="wide")
 
-hide_streamlit_style = """
+hide_all = """
 <style>
-header {visibility: hidden;}
-footer {visibility: hidden;}
-#MainMenu {visibility: hidden;}
-[data-testid="stToolbar"] {display: none !important;}
 
+/* Hide top header */
+[data-testid="stHeader"] {
+    display: none;
+}
+
+/* Hide toolbar */
+[data-testid="stToolbar"] {
+    display: none;
+}
+
+/* Hide footer */
+footer {
+    visibility: hidden;
+}
+
+/* Hide hamburger menu */
+#MainMenu {
+    visibility: hidden;
+}
+
+/* Hide deploy/manage floating button */
+[data-testid="stDecoration"] {
+    display: none;
+}
+
+/* Remove top padding */
 .block-container {
-    padding-top: 0rem;
+    padding-top: 1rem;
 }
+
 </style>
-
-<script>
-function hideButton() {
-    const button = window.parent.document.querySelector('button[data-testid="manage-app-button"]');
-    if (button) {
-        button.style.display = 'none';
-    }
-}
-
-setInterval(hideButton, 500);
-</script>
 """
 
-st.components.v1.html(hide_streamlit_style, height=0)
+st.markdown(hide_all, unsafe_allow_html=True)
 
 st.title("📊 Universal ID & PAN Duplicate Checker")
 st.write("Upload Excel file and detect duplicate Universal IDs / PAN with different names.")
