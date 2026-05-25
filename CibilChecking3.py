@@ -9,10 +9,6 @@ st.set_page_config(page_title="Duplicate Checker", layout="wide")
 
 st.set_page_config(layout="wide")
 
-import streamlit as st
-
-st.set_page_config(layout="wide")
-
 hide_st_style = """
 <style>
 
