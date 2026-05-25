@@ -12,9 +12,19 @@ st.set_page_config(layout="wide")
 st.markdown("""
 <style>
 
+/* Hide Manage App button */
+button[data-testid="manage-app-button"] {
+    display: none !important;
+}
+
 /* Hide Streamlit header */
 header {
     visibility: hidden;
+}
+
+/* Hide toolbar */
+[data-testid="stToolbar"] {
+    display: none !important;
 }
 
 /* Hide footer */
@@ -27,26 +37,6 @@ footer {
     visibility: hidden;
 }
 
-/* Hide top right toolbar */
-[data-testid="stToolbar"] {
-    display: none !important;
-}
-
-/* Hide deploy button */
-[data-testid="stDecoration"] {
-    display: none !important;
-}
-
-/* Hide bottom floating button */
-button[kind="header"] {
-    display: none !important;
-}
-
-/* Hide floating container */
-div[data-testid="stStatusWidget"] {
-    display: none !important;
-}
-
 /* Remove top spacing */
 .block-container {
     padding-top: 1rem;
@@ -54,7 +44,6 @@ div[data-testid="stStatusWidget"] {
 
 </style>
 """, unsafe_allow_html=True)
-
 st.title("📊 Universal ID & PAN Duplicate Checker")
 st.write("Upload Excel file and detect duplicate Universal IDs / PAN with different names.")
 
