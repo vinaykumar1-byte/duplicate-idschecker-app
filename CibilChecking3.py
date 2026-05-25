@@ -6,7 +6,9 @@ from io import BytesIO
 
 st.set_page_config(page_title="Duplicate Checker", layout="wide")
 
+
 import streamlit as st
+
 st.set_page_config(layout="wide")
 
 hide_all = """
@@ -44,6 +46,7 @@ footer {
 
 </style>
 """
+
 st.markdown(hide_all, unsafe_allow_html=True)
 
 st.title("📊 Universal ID & PAN Duplicate Checker")
