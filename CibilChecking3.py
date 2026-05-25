@@ -9,53 +9,52 @@ st.set_page_config(page_title="Duplicate Checker", layout="wide")
 
 st.set_page_config(layout="wide")
 
-hide_streamlit = """
+st.markdown("""
 <style>
 
-/* Main header */
+/* Hide Streamlit header */
 header {
     visibility: hidden;
 }
 
-/* Top toolbar */
-[data-testid="stToolbar"] {
-    display: none;
-}
-
-/* Top decoration */
-[data-testid="stDecoration"] {
-    display: none;
-}
-
-/* Footer */
+/* Hide footer */
 footer {
     visibility: hidden;
 }
 
-/* Hamburger menu */
+/* Hide menu */
 #MainMenu {
     visibility: hidden;
 }
 
-/* Deploy / Manage App button */
-.st-emotion-cache-1avcm0n {
-    display: none;
+/* Hide top right toolbar */
+[data-testid="stToolbar"] {
+    display: none !important;
 }
 
-/* Floating bottom button */
-.st-emotion-cache-18ni7ap {
-    display: none;
+/* Hide deploy button */
+[data-testid="stDecoration"] {
+    display: none !important;
 }
 
-/* Remove blank top space */
+/* Hide bottom floating button */
+button[kind="header"] {
+    display: none !important;
+}
+
+/* Hide floating container */
+div[data-testid="stStatusWidget"] {
+    display: none !important;
+}
+
+/* Remove top spacing */
 .block-container {
     padding-top: 1rem;
 }
 
 </style>
-"""
+""", unsafe_allow_html=True)
 
-st.markdown(hide_streamlit, unsafe_allow_html=True)
 st.title("📊 Universal ID & PAN Duplicate Checker")
 st.write("Upload Excel file and detect duplicate Universal IDs / PAN with different names.")
 
