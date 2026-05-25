@@ -9,6 +9,7 @@ st.set_page_config(page_title="Duplicate Checker", layout="wide")
 
 st.set_page_config(layout="wide")
 
+hide_all = """
 st.markdown("""
 <style>
 
