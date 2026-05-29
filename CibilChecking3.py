@@ -6,9 +6,6 @@ from io import BytesIO
 
 st.set_page_config(page_title="Duplicate Checker", layout="wide")
 
-
-import streamlit as st
-
 st.set_page_config(layout="wide")
 
 hide_all = """
